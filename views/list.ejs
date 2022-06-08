@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/list.css">
+    <title>ToDoList</title>
+    <style>
+        /*Fin de semana*/
+        .red{
+            color: darkred;
+        }
+        .div-fin{
+            background-color: goldenrod;
+        }
+       
+        
+
+        /*Entre semana*/
+        .blue{
+            color: rgb(17, 152, 214);
+        }
+        .div-entre{
+            background-color: white;
+            border:solid 2px black;
+        }
+       
+   
+        /*Estilo general*/
+        .div-list{
+            height: 500px;
+            max-width: 400px;
+            margin: 50px auto;
+            text-align: center;
+           
+            border-radius: 5px;
+            box-shadow: 5px 5px 15px -5px rgb(0, 0, 0,3);
+            overflow: scroll;
+        }
+        body{
+
+
+
+            min-height: 100vh;
+        }
+      
+    </style>
+</head>
+<body>
+
+  <%  if(ndOfDay === "Saturday" || ndOfDay === "Sunday"){   %>
+    <div class="div-fin div-list">
+        <h1 class="red"><%= ndOfDay  %> To Do List</h1>  
+
+        <% newListItems.forEach(function(item){%>
+            <form class="item" action="/delete" method="post">
+                <div class="item">
+                <input type="checkbox" name="checkbox" value="<%= item._id%>" onchange="this.form.submit()">
+                     <p><%=  item.name %></p>
+                    </div> 
+                </form>
+          <%    })   %>
+
+
+        <form class="form-fin item" action="/" method="post">
+            <input type="text" class="input-fin" name="newItem" placeholder="New Item" autocomplete="off">
+            <button type="submit" name="button" class="button-fin">+</button>
+        </form>
+    </div> 
+ 
+  <%  }else { %>
+       <div class="div-entre div-list"> 
+
+           <h1 class="blue"><%= ndOfDay %> To Do List </h1>
+
+          <% newListItems.forEach(function(item){%>
+            <form class="item" action="/delete" method="post">
+                <div class="item">
+                <input type="checkbox" name="checkbox" value="<%= item._id%>" onchange="this.form.submit()">
+                     <p><%=  item.name %></p>
+                    </div> 
+                </form>
+          <%    })   %>
+
+
+               
+
+             
+
+           <form class="form-entre item" action="/" method="post">
+
+            <input type="text" class="input-entre" name="newItem" placeholder="New Item" autocomplete="off">
+
+            <button type="submit" name="button" class="button-entre">+</button>
+        </form>
+    </div>
+  <%  } %>
+
+
+    <h1 class="presen"><%= kindOfDay %> </h1>
+</body>
+</html>

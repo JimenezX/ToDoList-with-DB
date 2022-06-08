@@ -1,0 +1,66 @@
+.red{
+    color: darkred;
+}
+
+#blue{
+    color: blue;
+}
+
+
+
+button{
+    height: 48px;
+    width: 50px;
+    border-radius: 50%;
+    border-color: transparent;
+    background-color: purple;
+    color: white;
+    font-size: 40px;
+    padding-bottom: 6px;
+    border-width: 0;
+    align-items: center;
+}
+
+.item{
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    border-bottom:solid 1px black ;
+}
+
+input[type="text"]{
+    text-align: center;
+    height: 60px;
+    top: 10px;
+    border: none;
+    background: transparent;
+    font-size:20px ;
+    font-weight: 200;
+    width: 313px;
+}
+input[type="text"]:focus{
+    outline: none;
+    box-shadow: inset 0 -3px 0 0 purple;
+}
+
+::placeholder{
+    color: gray;
+    opacity: 1;
+}
+
+p{
+    margin: 0;
+    padding: 20px;
+    font-size: 20px;
+    font-weight: 200;
+    color: black;
+}
+
+input:checked+p{
+    text-decoration: line-through;
+    text-decoration-color: violet;
+}
+
+.item:last-child{
+    border-bottom: 0;
+}
